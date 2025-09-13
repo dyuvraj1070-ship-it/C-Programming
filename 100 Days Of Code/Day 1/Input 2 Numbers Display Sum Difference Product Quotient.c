@@ -1,19 +1,18 @@
 #include <stdio.h>
 
 int main() {
-    int num1, num2, sum, diff, prod;
+    int number1, number2, sum, diff, prod;
     float quot;
 
     printf("Enter first number: ");
-    scanf("%d", &num1);
-
+    scanf("%d", &number1);
     printf("Enter second number: ");
-    scanf("%d", &num2);
+    scanf("%d", &number2);
 
-    sum = num1 + num2;
-    diff = num1 - num2;
-    prod = num1 * num2;
-    quot = (float)num1 / num2;
+    sum = number1 + number2;
+    diff = number1 - number2;
+    prod = number1 * number2;
+    quot = (float)number1 / number2;
 
     printf("Sum = %d\n", sum);
     printf("Difference = %d\n", diff);

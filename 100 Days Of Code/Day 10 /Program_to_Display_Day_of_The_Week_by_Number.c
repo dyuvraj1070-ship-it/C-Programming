@@ -29,7 +29,7 @@ int main() {
             printf("Sunday\n");
             break;
         default:
-            printf("Invalid number! Please enter between 1-7.\n");
+            printf("Invalid number! Please enter number between 1-7.\n");
     }
 
     return 0;

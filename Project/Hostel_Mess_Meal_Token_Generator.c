@@ -28,3 +28,12 @@ typedef struct {
     int prefType;           // 0 = none, 1 = phone, 2 = allergy
     ExtraInfo extra;        // union usage
 } Token;
+
+/* get today's date string */
+char *today_date() {
+    static char buf[11];
+    time_t t = time(NULL);
+    struct tm *tm = localtime(&t);
+    sprintf(buf, "%04d-%02d-%02d", tm->tm_year+1900, tm->tm_mon+1, tm->tm_mday);
+    return buf;
+}

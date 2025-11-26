@@ -37,3 +37,21 @@ char *today_date() {
     sprintf(buf, "%04d-%02d-%02d", tm->tm_year+1900, tm->tm_mon+1, tm->tm_mday);
     return buf;
 }
+
+/* append token to file */
+void save_token(Token *tk) {
+    FILE *fp = fopen(FNAME, "a");
+    if (!fp) { perror("open"); return; }
+    // Format:
+    // tokenNo,date,roll,name,meal,slot,prefType,prefValue\n
+    if (tk->prefType == 1)
+        fprintf(fp, "%d,%s,%s,%s,%s,%d,%d,%s\n",
+                tk->tokenNo, tk->date, tk->roll, tk->name, tk->meal, tk->slot, tk->prefType, tk->extra.phone);
+    else if (tk->prefType == 2)
+        fprintf(fp, "%d,%s,%s,%s,%s,%d,%d,%s\n",
+                tk->tokenNo, tk->date, tk->roll, tk->name, tk->meal, tk->slot, tk->prefType, tk->extra.allergy);
+    else
+        fprintf(fp, "%d,%s,%s,%s,%s,%d,%d,\n",
+                tk->tokenNo, tk->date, tk->roll, tk->name, tk->meal, tk->slot, tk->prefType);
+    fclose(fp);
+}

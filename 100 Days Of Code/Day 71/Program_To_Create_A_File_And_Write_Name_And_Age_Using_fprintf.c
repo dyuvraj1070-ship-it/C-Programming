@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    char name[100];
+    int age;
+
+    fp = fopen("info.txt", "w");
+    if(fp == NULL) {
+        return 0;
+    }
+
+    scanf("%s", name);
+    scanf("%d", &age);
+
+    fprintf(fp, "Name: %s\nAge: %d\n", name, age);
+
+    fclose(fp);
+
+    printf("Data successfully saved");
+
+    return 0;
+}
